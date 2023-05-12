@@ -1,5 +1,7 @@
-
-
+module "network" {
+  source  = "app.terraform.io/almeidafe/network/azurerm"
+  version = "5.2.0"
+ 
 resource "azurerm_resource_group" "example" {
   name     = "my-resources"
   location = "West Europe"
@@ -25,3 +27,4 @@ module "network" {
 
   depends_on = [azurerm_resource_group.example]
 }
+  }
