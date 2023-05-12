@@ -32,7 +32,6 @@ resource "azurerm_virtual_network" "vnet" {
   location            = azurerm_resource_group.myresourcegroup.location
   address_space       = [var.address_space]
   resource_group_name = azurerm_resource_group.myresourcegroup.name
-  Department = "devops"
 }
 
 resource "azurerm_subnet" "subnet" {
@@ -119,6 +118,8 @@ resource "azurerm_linux_virtual_machine" "catapp" {
   admin_password                  = var.admin_password
   disable_password_authentication = false
   network_interface_ids           = [azurerm_network_interface.catapp-nic.id]
+  Department = "devops"
+  Billable = true
 
   source_image_reference {
     publisher = var.image_publisher
