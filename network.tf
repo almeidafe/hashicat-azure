@@ -1,6 +1,6 @@
 module "network" {
   source  = "app.terraform.io/almeidafe/network/azurerm"
-  version = "5.2.0"
+  version = "3.5.0"
  
 resource "azurerm_resource_group" "example" {
   name     = "my-resources"
@@ -15,11 +15,11 @@ module "network" {
   subnet_names        = ["subnet1", "subnet2", "subnet3"]
 
   subnet_service_endpoints = {
-    "subnet1" : ["Microsoft.Sql"],
+    "subnet1" : ["Microsoft.Sql"], 
     "subnet2" : ["Microsoft.Sql"],
     "subnet3" : ["Microsoft.Sql"]
   }
-  use_for_each = true
+
   tags = {
     environment = "dev"
     costcenter  = "it"
